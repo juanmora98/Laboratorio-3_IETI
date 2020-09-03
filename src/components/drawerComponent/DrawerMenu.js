@@ -22,9 +22,10 @@ export class DrawerMenu extends React.Component {
         this.setState({open: open})
     };
 
-    /**logout(){
-        this.props.changeIsLoggedIn();
-    }**/
+    logout(){
+        localStorage.clear();
+        window.location.href = "/";
+    }
 
 
     render() {

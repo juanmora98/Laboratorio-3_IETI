@@ -8,6 +8,12 @@ export class User extends React.Component {
     constructor(props) {
         super(props);
     }
+
+    componentDidMount() {
+        if(!localStorage.getItem('User') && !localStorage.getItem('Password')){
+          window.location.href = "/"
+        }
+    }
     
     render(){
 
