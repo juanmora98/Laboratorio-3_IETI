@@ -9,27 +9,25 @@ export class TaskCard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { description: '', responsible: { name: '', email: '' }, status: '', dueDate: 0 };
-        this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
         return(
-            <Card>
+            <Card className="card">
                 <CardContent>
                     <Typography color="textSecondary" gutterBottom>
-                        {this.state.description}
+                        {this.props.description}
                     </Typography>
                     <br />
                     <Typography variant="h5" component="h2">
-                        {this.state.status}
+                        {this.props.status}
                     </Typography>
                     <Typography variant="h5" component="h2">
-                        {this.state.dueDate}
+                        {this.props.dueDate}
                     </Typography>
                     <br />
                     <Typography variant="h5" component="h2">
-                        {this.state.responsible.name}
+                        {this.props.responsible.name}
                     </Typography>
                 </CardContent>
             </Card>

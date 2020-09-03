@@ -11,9 +11,10 @@ export class Login extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { userame: '', password: ''};
-        this.handleUserNameChange = this.handleUserNameChange.bind(this);
+        this.state = { mail: '', password: ''};
+        this.handleMailChange = this.handleMailChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
+        this.handleSubmitChange = this.handleSubmit.bind(this);
     }
 
 
@@ -36,29 +37,32 @@ export class Login extends React.Component {
                                 </Avatar>
                             </Grid>
                             <br />
-                            <FormControl variant="outlined">
+                            <FormControl variant="outlined" required>
                                 <InputLabel htmlFor="component-outlined">
-                                    Nombre de usuario
+                                    Correo electronico
                                 </InputLabel>
-                                <OutlinedInput id="username" 
-                                value={this.props.userame} 
-                                onChange={this.handleUserNameChange} 
+                                <OutlinedInput id="mail" 
+                                value={this.state.mail} 
+                                onChange={this.handleMailChange} 
                                 />
                             </FormControl>
                             <br/>
                             <br />
-                            <FormControl variant="outlined">
+                            <FormControl variant="outlined" required>
                                 <InputLabel htmlFor="component-outlined">
                                     Contraseña
                                 </InputLabel>
                                 <OutlinedInput id="password"
-                                 value={this.props.password} 
+                                 value={this.state.password} 
                                  onChange={this.handlePasswordChange} 
                                 />
                             </FormControl>
                             <br />
                             <br />
-                            <Button variant="contained" className="button" href={user}>
+                            <Button variant="contained" 
+                            className="button" 
+                            onClick= {this.handleSubmit}
+                            >
                                 Login
                             </Button>
                             <br />
@@ -71,10 +75,10 @@ export class Login extends React.Component {
     }
 
 
-    handleUserNameChange(e){
+    handleMailChange(e){
 
         this.setState({
-            userame: e.target.value
+            mail: e.target.value
         });
 
     }
@@ -87,6 +91,20 @@ export class Login extends React.Component {
 
     }
 
+    componentDidMount() {
+        if(localStorage.getItem('User') && localStorage.getItem('Password')){
+            this.setState({
+                mail: localStorage.getItem('User'),
+                password: localStorage.getItem('Password')
+            });
+        }
+    }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        localStorage.setItem('User', this.state.mail);
+        localStorage.setItem('Password', this.state.password);
+        window.location.href = "/user"
+    }
 
 }
