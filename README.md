@@ -1,5 +1,5 @@
 
-FIREBASE: https://laboratorio-3-ieti.web.app
+FIREBASE: https://laboratorio-3-ieti.firebaseapp.com
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
