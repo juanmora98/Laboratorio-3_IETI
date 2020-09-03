@@ -11,7 +11,7 @@ export class UserCard extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {'user': {}}
+        this.state = {name: 'Juan Felipe Mora', correo:'juanmora@gmail.com'}
     }
 
     render() {
@@ -30,8 +30,8 @@ export class UserCard extends React.Component {
                                 <MoreVertIcon/>
                             </IconButton>
                         }
-                        title={localStorage.getItem("name")}
-                        subheader= {localStorage.getItem("email")}
+                        title={this.state.name}
+                        subheader= {this.state.correo}
                     />
                 </Card>
 
