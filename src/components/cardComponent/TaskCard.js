@@ -15,20 +15,19 @@ export class TaskCard extends React.Component {
         return(
             <Card className="card">
                 <CardContent>
-                    <Typography color="textSecondary" gutterBottom>
+                    <Typography>
                         {this.props.description}
                     </Typography>
-                    <br />
-                    <Typography variant="h5" component="h2">
+                    <Typography>
+                        {this.props.name}
+                    </Typography>
+                    <Typography>
                         {this.props.status}
                     </Typography>
-                    <Typography variant="h5" component="h2">
-                        {this.props.dueDate}
+                    <Typography>
+                        {new Date(this.props.dueDate).toLocaleDateString()}
                     </Typography>
-                    <br />
-                    <Typography variant="h5" component="h2">
-                        {this.props.responsible.name}
-                    </Typography>
+                    
                 </CardContent>
             </Card>
       );

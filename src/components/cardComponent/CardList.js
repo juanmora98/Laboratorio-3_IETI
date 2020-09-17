@@ -12,7 +12,12 @@ export class CardList extends React.Component {
     render() {
     const CardList = this.props.items.map((cards, i) => {
         return (
-            <TaskCard key={i} description={cards.description} status={cards.status} dueDate={cards.dueDate} responsible={cards.responsible.name}/>
+            <TaskCard 
+                key={i} 
+                description={cards.description} 
+                status={cards.status} 
+                dueDate={cards.dueDate} 
+                responsible={cards.responsible.name}/>
         );
     });
 
